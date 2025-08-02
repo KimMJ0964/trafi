@@ -37,11 +37,9 @@
 
 - **운영체제:**  
   <img src="https://img.shields.io/badge/Windows%2010-0078D6?style=for-the-badge&logo=Windows&logoColor=white">
-  <img src="https://img.shields.io/badge/macOS-000000?style=for-the-badge&logo=apple&logoColor=white">
 
 - **IDE:**  
   <img src="https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white">
-  <img src="https://img.shields.io/badge/IntelliJ%20IDEA-000000?style=for-the-badge&logo=intellijidea&logoColor=white">
 
 - **형상 관리:**  
   <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white">
