@@ -46,8 +46,6 @@
 - **형상 관리:**  
   <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white">
   <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white">
-  <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white">
-  <img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white">
 
 ### 기술 스택
 ### Stacks
@@ -67,15 +65,12 @@
   <img src="https://img.shields.io/badge/Java-%23ED8B00?style=for-the-badge&logo=openjdk&logoColor=white">
   <img src="https://img.shields.io/badge/MyBatis-BF0D3E?style=for-the-badge">
   <img src="https://img.shields.io/badge/JSTL-007396?style=for-the-badge&logo=Java&logoColor=white">
-  <img src="https://img.shields.io/badge/GSON-FFCA28?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Guava-34A853?style=for-the-badge">
 
-- <img src="https://img.shields.io/badge/UI Framework-%23121011?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=Bootstrap&logoColor=white">
+- <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=Bootstrap&logoColor=white">
 
 ### Database
 - <img src="https://img.shields.io/badge/Database-%23121011?style=for-the-badge">
-  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white">
+ <img src="https://img.shields.io/badge/SQL%20Developer-F80000?style=for-the-badge&logo=oracle&logoColor=white" alt="SQL Developer Badge">
 
 ---
 
