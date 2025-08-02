@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace : 해당 mapper 파일의 고유한 별칭 -->
+<mapper namespace="courseMapper">
+
+	<resultMap type="SubCourse" id="SubCourseResultSet">
+		<!-- <result column = "테이블 컬럼명" property="객체의 필드명"/> -->
+		<result column="SUBCOURSE_NO" property="subCourseNo" />
+		<result column="COURSE_NO" property="courseNo" />
+		<result column="TOUR_NO" property="tourNo" />
+		<result column="FS_NO" property="fsNo" />
+		<result column="TURN" property="turn" />
+		<!-- TOURIST 테이블과 관련된 매핑 -->
+		<result column="TOUR_NAME" property="tourName" />
+		<result column="TOUR_IMG" property="tourImg" />
+		<result column="TOUR_LAT" property="tourLat" />
+		<result column="TOUR_LONG" property="tourLong" />
+
+		<!-- FESTIVAL 테이블과 관련된 매핑 -->
+		<result column="FS_NAME" property="fsName" />
+		<result column="FS_IMG" property="fsImg" />
+		<result column="FS_LAT" property="fsLat" />
+		<result column="FS_LONG" property="fsLong" />
+	</resultMap>
+	
+	<resultMap id="courseResultSet" type="Course">
+      <result column="COURSE_NO" property="courseNo" />
+      <result column="COURSE_NAME" property="courseName" />
+      <result column="COURSE_AREA" property="courseArea" />
+      <result column="COURSE_TEMA" property="courseTema" />
+      <result column="COURSE_IMG" property="courseImg" />
+   </resultMap>
+	
+
+	<select id="selectSubCourse" resultMap="SubCourseResultSet">
+		SELECT
+		sc.SUBCOURSE_NO, sc.COURSE_NO, sc.TOUR_NO, sc.FS_NO, sc.TURN,
+		t.TOUR_NAME, t.TOUR_IMG, t.TOUR_LAT, t.TOUR_LONG,
+		f.FS_NAME, f.FS_IMG, f.FS_LAT, f.FS_LONG
+		FROM
+		SUB_COURSE sc
+		LEFT JOIN TOURIST t ON sc.TOUR_NO = t.TOUR_NO
+		LEFT JOIN FESTIVAL f ON sc.FS_NO = f.FS_NO
+		WHERE
+		sc.COURSE_NO = #{courseNo}
+	</select>
+	
+	<select id="selectCourseDetail" resultMap="courseResultSet">
+		SELECT COURSE_NO,
+			   COURSE_NAME
+		FROM COURSE
+		WHERE COURSE_NO = #{courseNo} 
+	</select>
+		
+	<select id="selectListCount" resultType="_int">
+      SELECT COUNT(*)
+        FROM COURSE
+   </select>
+   
+   <select id="selectList" resultMap="courseResultSet">
+      SELECT COURSE_NO,
+            COURSE_NAME,
+            COURSE_AREA,
+            COURSE_TEMA,
+            COURSE_IMG
+        FROM COURSE
+       ORDER BY COURSE_NO ASC
+   </select>
+   
+   <!-- 필터 조건에 맞는 코스를 조회하는 SQL 쿼리 -->
+    <select id="findCoursesByFilters" resultMap="courseResultSet">
+        SELECT COURSE_NO,
+            COURSE_NAME,
+            COURSE_AREA,
+            COURSE_TEMA,
+            COURSE_IMG
+        FROM COURSE
+        WHERE 1=1
+        <if test="areas != null">
+            <foreach item="area" collection="areas" open="AND (" separator=" OR " close=")">
+                COURSE_AREA = #{area}
+            </foreach>
+        </if>
+        <if test="themes != null">
+            <foreach item="theme" collection="themes" open="AND (" separator=" OR " close=")">
+                COURSE_TEMA = #{theme}
+            </foreach>
+        </if>
+    </select>
+	
+
+</mapper>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="festivalMapper">
+	<resultMap type="Festival" id="FestivalResultSet">
+		<id property="fsNo" column="FS_NO" />
+		<result property="fsName" column="FS_NAME" />
+		<result property="fsArea" column="FS_AREA" />
+		<result property="fsSeason" column="FS_SEASON" />
+		<result property="fsTema" column="FS_TEMA" />
+		<result property="fsImg" column="FS_IMG" />
+		<result property="fsUrl" column="FS_URL" />
+		<result property="fsDct" column="FS_DCT" />
+		<result property="fsLike" column="FS_LIKE" />
+		<result property="fsLat" column="FS_LAT" />
+		<result property="fsLong" column="FS_LONG" />
+		<result property="fsEnd" column="FS_END" />
+		<result property="fsStart" column="FS_START" />
+	</resultMap>	
+	
+	<select id="selectListCount" resultType="_int">
+		SELECT COUNT(*)
+		  FROM FESTIVAL
+	</select>
+	<select id="selectList" resultMap="FestivalResultSet">
+		SELECT FS_NO,
+			   FS_NAME,
+			   FS_AREA,
+			   FS_SEASON,
+			   FS_TEMA,
+			   FS_IMG
+		  FROM FESTIVAL
+		 ORDER BY FS_NO ASC
+	</select>
+	
+	<select id="selectFestival" parameterType="_int" resultMap="FestivalResultSet">
+		SELECT FS_NO, 
+			   FS_NAME, 
+			   FS_AREA, 
+			   FS_SEASON, 
+			   FS_TEMA, 
+			   FS_IMG,
+			   FS_URL, 
+			   FS_DCT, 
+			   FS_LIKE, 
+			   FS_END,
+			   FS_START,
+			   FS_LAT,
+			   FS_LONG
+		FROM FESTIVAL
+		WHERE FS_NO = #{fsNo} </select>
+		
+		<select id="searchFestivals" resultMap="FestivalResultSet">
+			SELECT * 
+			FROM FESTIVAL 
+			WHERE FS_NAME 
+			LIKE '%' || #{keyword} || '%'
+		</select>
+		
+		<update id="increaseFestivalLike">
+			UPDATE FESTIVAL 
+			SET FS_LIKE = FS_LIKE + 1 
+			WHERE FS_NO = #{tourNo}
+		</update>
+		
+		<update id="decreaseFestivalLike">
+			UPDATE FESTIVAL 
+			SET FS_LIKE = FS_LIKE - 1 
+			WHERE FS_NO = #{fsNo} 
+		</update>
+</mapper>
+	

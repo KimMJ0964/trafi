@@ -1,0 +1,103 @@
+body{
+    width: 100%; height: 100vh;
+    background-color: #DFF0FF;
+    margin: 0 auto;
+	overflow-x: hidden;
+}
+
+.info-con{
+    width: 80%; height: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+#map-con{
+    width: 900px; height: 700px;
+    text-align: center;
+}
+#map-con p{
+    width: 400px; height: 40px;
+    background-color: #6FBAFF;
+    margin: 0 auto;
+    border-radius: 50px;
+    line-height: 40px;
+    font-size: 20px;
+    font-weight: 800;
+}
+#map{
+    width: 800px; height: 600px;
+    border-radius: 85px;
+    border: #6FBAFF solid 10px;
+    background-color: #fff;
+    margin-top: 30px;
+}
+
+#course-info{
+    width: 500px; height: 800px;
+    margin: 0;
+    background-color: #fff;
+    border-radius: 15px;
+    overflow-y: scroll;
+}
+
+ul{
+    list-style-type: none;
+}
+#course_line1{
+    width: 8px; height: 750px;
+    background-color: #FFC2E2;
+    border-radius: 30px;
+    position: absolute;
+    z-index: 1;
+    margin-top: 20px;
+    margin-left: 50px;
+  }
+.dot{
+    margin: 0;
+    margin-top: 35px;
+    margin-left: 4px;
+    width: 20px; height: 20px;
+    background-color: #000;
+    border-radius: 100%;
+    position: relative;
+    z-index: 100;
+    display: block;
+    cursor: pointer;
+  }
+  .dot-con:not(.first-dot){
+    margin-top: 160px;
+  }
+  .dot-con{
+    width: 100%; height: 170px;
+  }
+  .dot-con > p{
+    width: fit-content; height: 30px;
+    font-size: 20px;
+    font-weight: 800;
+    text-align: left;
+    margin: -20px 0 0 40px;
+    display: block;
+    cursor: pointer;
+  }
+  .text-desc{
+    margin-left: 40px;
+  }
+
+  #like-btn{
+    width: 100%; height: auto;
+    display: flex;
+    align-items: center;
+  }
+  button{
+    width: 448px; height: 88px;
+    background-color: #6FBAFF;
+    font-size: 25px;
+    font-weight: 800;
+    color: #fff;
+    margin: 0 auto;
+    border: none;
+    border-radius: 50px;
+  }
+  button:hover{
+    background-color: #4da4f7;
+  }

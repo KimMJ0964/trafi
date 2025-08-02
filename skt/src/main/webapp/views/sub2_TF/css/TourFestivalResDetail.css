@@ -1,0 +1,238 @@
+@charset "UTF-8";
+
+.container {
+    width: 900px;
+    max-width: 1284px;
+    margin: 100px auto;
+    padding: 80px;
+    background-color: #ffffff;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 56px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.festival-image {
+    width: 300px;
+    height: auto;
+    border: 1px solid #ddd;
+}
+
+.festival-info {
+    width: calc(100% - 320px);
+    padding: 10px 20px;
+}
+
+.festival-info h1 {
+	font-size: 24px;
+	margin-bottom: 55px;
+	margin-left: 30px;
+	text-align: center;
+	padding: 20px;
+	background: #6FBAFF;
+	border-radius: 50px;
+}
+
+.festival-details {
+    list-style: none;
+}
+
+.festival-details li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.description{
+	text-align: center;
+	    padding: 30px 30px;
+	    margin: 80px 0px;
+	    font-weight: 600;
+	    color: #4f4f4f;
+}
+
+.description h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    
+}
+
+.interest-btn {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border: 2px solid #6FBAFF;
+    cursor: pointer;
+    font-size: 18px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    width: 300px;
+    height: 50px;
+}
+
+.interest-btn:hover{
+    background-color: #6FBAFF;
+    color: white;
+}
+
+.similar-festivals {
+    margin-top: 40px;
+}
+
+.similar-festivals h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.festival-cards {
+    display: flex;
+    justify-content: space-between;
+}
+
+.festival-card {
+    width: 50%;
+    text-align: center;
+}
+
+.festival-card img {
+    width: 80%;
+    height: auto;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+
+  /* 500px 이하의 화면 크기에서 적용할 스타일 */
+  @media (max-width: 500px) {
+   
+    
+    .container {
+        width: 90%;
+        max-width: 1284px;
+        margin: 100px auto;
+        padding: 50px;
+        background-color: #ffffff;
+        box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.3);
+        border-radius: 56px;
+    }
+    
+    .header {
+        display: flex;
+        flex-direction: column; /* 수직 정렬로 변경 */
+        align-items: center; /* 자식 요소를 가운데 정렬 */
+    }
+    
+    .festival-image {
+        width: 250px;
+        height: auto;
+        border: 1px solid #ddd;
+        margin-bottom: 20px; /* 이미지 아래로 여백 추가 */
+    }
+    
+    .festival-info {
+        width: 100%;
+        padding: 10px 20px;
+        text-align: center; /* 텍스트 가운데 정렬 */
+    }
+    
+    .festival-info h1 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+    
+    .festival-details {
+        list-style: none;
+    }
+    
+    .festival-details li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+    
+    .icon {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+    }
+    
+    .description{
+        margin: 30px 0;
+       text-align: center;
+       padding: 30px 0px;
+       margin: 50px 0px;
+	   padding-left: 50px;
+	   color: white;
+    }
+    
+	
+    .description h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        
+    }
+    
+    .interest-btn {
+        background-color: white;
+        color: black;
+        padding: 10px 20px;
+        border: 2px solid #6FBAFF;
+        cursor: pointer;
+        font-size: 18px;
+        display: block;
+        margin: 0 auto;
+        border-radius: 10px;
+        width: 300px;
+        height: 50px;
+    }
+    
+    .interest-btn:hover{
+        background-color: #6FBAFF;
+        color: white;
+    }
+    
+    .similar-festivals {
+        margin-top: 40px;
+    }
+    
+    .similar-festivals h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    
+    .festival-cards {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap; /* 추가: 줄 바꿈을 가능하게 함 */
+    }
+    
+    .festival-card {
+        width: 48%; /* 수정: 카드의 너비를 48%로 설정하여 한 줄에 2개씩 배치 */
+        margin-bottom: 20px; /* 하단 여백 추가 */
+        text-align: center;
+    }
+    
+    .festival-card img {
+        width: 100%;
+        height: auto;
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+    }
+}

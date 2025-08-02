@@ -1,0 +1,523 @@
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: bolder;
+    font-style: normal;
+  }
+  
+
+.test-container {
+    width: 80%;
+    height: auto; /* 자동 높이 설정 */
+    margin-left:150px;
+}
+
+  img{
+    border: 0px;
+    
+  }
+  
+  /* main */
+  #main{
+    width: 100%; height: 100px;
+    background-color: #DFF0FF;
+    text-align: center;
+    margin-top: 50px;
+    
+  }
+  #main h3{
+    font-size: 50px;
+    text-align: center;
+    color: #000000;
+    font-family: 'NanumSquareRound';
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    -webkit-text-stroke: #000000 0.5px;
+    padding-top: 30px;
+  }
+
+
+  #main #test{
+    clear: both;
+    font-size: 30px;
+    letter-spacing: -1px;
+    color: #d8d8d8;
+    font-weight: 400;
+    -webkit-text-stroke: 0.5px;
+    padding-top: 30px;
+  }
+  #main #test b{
+    -webkit-text-stroke: 0.5px;
+  }
+  
+  
+  #main button{
+    margin-top: 60px;
+    width: 550px;height: 90px;
+    border-radius: 30px;
+    background-color:#6FBAFF;  
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    background-color: #FFFFFF;
+    font-size: 35px;
+    font-weight: 800;
+    text-align: center;
+    line-height: 80px;
+    color:black;
+  }
+  #main button:hover{
+    background-color:#6FBAFF;
+    border: none;
+    color: #ffffff;
+    font-weight: 800;
+  }
+  
+ #main img{
+  margin-top:100px;
+  margin-left: 80px;
+  }
+  
+  
+  
+  /* QnA */
+  #qna{
+    display: none;
+    margin-top: 150px;
+    margin-left: 200px;
+    width: 80%;
+  }
+  .qBox{
+    margin-top: 100px;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 30px;
+    color: #03045E;
+    letter-spacing: -1px;
+  }
+  .answerBox{
+    margin-top: 70px;
+  }
+  .answerList{
+    font-size: 30px;
+    text-align: center;
+    color: #03045E;
+    font-weight: 800;
+    background-color:rgba(0, 0, 0, 0);
+    border: #6FBAFF solid 3px;
+    border-radius: 30px;
+    display: block;
+    width: 80%;
+    height: 150px;
+  }
+  .answerList:hover, .answerList:focus{
+    background-color: #6FBAFF;
+    color: white;
+   
+  }
+  .status{
+    width: 100%; height: 30px;
+    border-radius: 20px;
+    background-color: white;
+  }
+  .statusBar{
+    height: 100%;
+    background: #6FBAFF;
+    border-radius: 20px;
+    float: left;
+  }
+  .statusBar > #tic{
+    float: right;
+    margin-top: -18px;
+    margin-right: -27px;
+  }
+  #fes{
+    position: absolute;
+    margin-left: 1000px;
+    margin-top: -30px;
+  }
+  
+  /* result */
+  #result{
+    display: none;
+    width: 70%;
+    height: 1700px;
+    text-align: center;
+    padding: 50px;
+    background-color: #ffffff;
+    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.3);
+    border-radius: 56px;
+    margin-top:8em;
+
+  }
+  h3{
+    margin-bottom: 20px;
+    font-size: 40px;
+    color: #03045E;
+    letter-spacing: -1px;
+    font-weight: 800;
+    color: #6FBAFF;
+  }
+ .resultname {
+    height: 70px;
+    background-color: #6FBAFF;
+    color: #fff;
+    border-radius: 30px;
+    font-size: 40px;
+    text-align: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    margin-left: 350px;
+}
+  #resultImg{
+  width: 100%;
+      height:200px; 
+      margin-top: 20px;
+      border-radius: 15px;
+    border-radius: 30px;
+    margin-top: 100px;
+  }
+  
+    #resultImg img{
+       margin: 0 auto;
+    width: 500px;
+    height: 500px;
+    margin-top: -45px;
+    border-radius: 30px;
+    }
+    
+  
+  #result > ul{
+      margin-top: 280px;
+    list-style-type: none;
+    margin-top: 280px;
+    
+  }
+  #result > ul > li{
+    float: left;
+    margin-left: 20px;
+  }
+  .resulttag1,.resulttag2, .resulttag3{
+    width: 300px; height: 70px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 60px;
+    background-color: ghostwhite;
+    font-size: 28px;
+    color: #6FBAFF;
+    font-weight: 800;
+    -webkit-text-stroke: 0.5px #6FBAFF;
+    text-align: center;
+    line-height: 75px;
+    letter-spacing: -1px;
+  }
+  .resultDesc{
+    clear: both;
+    width: 70%; height: 270px;
+    padding-top: 65px;
+    font-size: 30px;
+    font-weight: 800;
+    margin-left: 110px;
+    color: #6FBAFF;
+    letter-spacing: -2px;
+  }
+  .resultDesc1{
+    clear: both;
+    font-size: 25px;
+    width: 80%;
+    margin-left: 80px;
+    height: 190px;
+    font-weight: 800;
+    color: #2A8FA4;
+    letter-spacing: -2px;
+    border-bottom: dashed #6FBAFF 2px;
+    margin-top: -100px;
+    margin-bottom: -50px;
+  }
+  #family{
+   margin-top: 84px;
+    margin-bottom: 35px;
+  }
+  #family > p{
+    font-size: 25px;
+    color: #6FBAFF;
+    -webkit-text-stroke: 0.5px #6FBAFF;
+    letter-spacing: -2px;
+  }
+  #family > h1{
+   font-size: 35px;
+    font-weight: 800;
+    color: #6FBAFF;
+    -webkit-text-stroke: #6FBAFF 0.8px;
+    
+  }
+  #family > button{
+    width: 500px;
+    height: 100px;
+    background-color: #FFC2E2;
+    color: #fff;
+    font-size: 40px;
+    -webkit-text-stroke: #fff 0.8px;
+    border: #FFC2E2 4px solid;
+    border-radius: 25px;
+    margin-top: 40px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: -2px;
+  }
+ .test-container  hr{
+    border: 2px #6FBAFF solid;
+    margin-top: 65px;
+  }
+  .return{
+    width: 355px; height: 88px;
+    font-size: 30px;
+    background-color:white;
+    border: 4px solid #6FBAFF;
+    border-radius: 60px;
+    margin-top: 20px;
+    margin-left: 20px;
+    color: #6FBAFF;
+  }
+
+  .return:hover, .return:focus{
+    background-color: #6FBAFF;
+    border: 4px solid #6FBAFF;
+    color:white;
+  }
+  
+  .return a:hover{
+     color:white;
+  }
+
+    /* 500px 이하의 화면 크기에서 적용할 스타일 */
+  @media (max-width: 480px) {
+    *{
+      margin: 0 auto;
+      padding: 0 auto;
+      box-sizing: border-box;
+      
+    }
+    body {
+      font-family: 'NanumSquareRound';
+      font-size: 14px;
+      color: black;
+      background-color: #DFF0FF;
+      overflow-y: auto; /* 필요할 때만 세로 스크롤 생성 */
+      overflow-x: hidden; /* 수평 스크롤 막기 */
+  }
+  
+  .test-container {
+      width: 100%;
+      height: auto; /* 자동 높이 설정 */
+  }
+  
+    img{
+      border: 0px;
+    }
+   
+    
+    /* main */
+    #main{
+      width: 100%; height: 100px;
+      background-color: #DFF0FF;
+      text-align: center;
+      margin-top: 20px;
+
+    }
+    #main h3{
+      font-size: 50px;
+      text-align: center;
+      color: #000000;
+      font-family: 'NanumSquareRound';
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      -webkit-text-stroke: #000000 0.5px;
+      padding-top: 30px;
+    }
+    .slide_contain{
+      width: 100%; height: 347px;
+      margin-top: 65px;
+    }
+    .slides{
+      width: 1920px;
+      display: flex;
+      margin-left: -315px;
+      transition: transform 0.5s ease;
+    }
+    .slide{
+      min-width: 120%;height: 347px;
+      margin-left: 16px;
+      overflow: hidden;
+    }
+    .slide:last-child{
+      margin-right: 0;
+    }
+    .slide img{
+      width: 100%;height: 347px;
+    }
+    #main #test{
+      clear: both;
+      font-size: 30px;
+      letter-spacing: -1px;
+      color: #d8d8d8;
+      font-weight: 400;
+      -webkit-text-stroke: 0.5px;
+      padding-top: 30px;
+    }
+    #main #test b{
+      -webkit-text-stroke: 0.5px;
+    }
+    
+    #main button{
+      margin-top: 60px;
+      width: 550px;height: 90px;
+      border-radius: 30px;
+      background-color:rgba(255, 255, 0, 0);  
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+      background-color: #FFFFFF;
+      font-size: 35px;
+      font-weight: 800;
+      text-align: center;
+      line-height: 80px;
+      color:black;
+    }
+    #main button:hover{
+      background-color:#6FBAFF;
+      border: none;
+      color: #ffffff;
+      font-weight: 800;
+    }
+    
+    
+    /* QnA */
+    #qna{
+      display: none;
+      margin-top: 100px;
+    }
+    .qBox{
+      margin-top: 150px;
+      text-align: center;
+      border-radius: 20px;
+      font-size: 40px;
+      color: black;
+      letter-spacing: -1px;
+    }
+    .answerBox{
+      margin-top: 100px;
+    }
+    .answerList{
+      font-size: 35px;
+      text-align: center;
+      color: black;
+      font-weight: 800;
+      background-color:rgba(0, 0, 0, 0);
+      border: #6FBAFF solid 3px;
+      border-radius: 30px;
+      display: block;
+      width: 80%;
+      height: 150px;
+    }
+    .answerList:hover, .answerList:focus{
+      background-color: #6FBAFF;
+      color: white;
+     
+    }
+    .status{
+      width: 100%; height: 30px;
+      border-radius: 20px;
+      background-color: white;
+    }
+    .statusBar{
+      height: 100%;
+      background: #6FBAFF;
+      border-radius: 20px;
+      float: left;
+    }
+    .statusBar > #tic{
+      float: right;
+      margin-top: -18px;
+      margin-right: -27px;
+    }
+    #fes{
+      position: absolute;
+      margin-left: 1000px;
+      margin-top: -30px;
+    }
+    
+    
+    /* result */
+    #result {
+      display: block; 
+      width: 100%; 
+      padding: 10px;
+      box-sizing: border-box; 
+    }
+    
+    h3 {
+      font-size: 24px; 
+      margin-bottom: 15px; 
+    }
+  
+    #result > ul {
+      margin-top: 30px;
+      padding-left: 0; 
+      text-align: center; 
+      margin-top: 280px;
+    }
+  
+    #result > ul > li {
+      float: none; 
+      display: inline-block; 
+      margin: 10px; 
+    }
+  
+    .resulttag1, .resulttag2, .resulttag3 {
+      width: 180px; 
+      height: 60px;
+      font-size: 22px; 
+      line-height: 60px; 
+    }
+  
+    .resultDesc, .resultDesc1 {
+      font-size: 20px; 
+      padding-top: 30px; 
+      height: auto;
+      letter-spacing: -1px; 
+    }
+  
+    #family {
+      margin-top: 40px; 
+    }
+  
+    #family > p, #family > h1 {
+      font-size: 22px;
+      letter-spacing: -1px; 
+    }
+  
+    #family > button {
+      width: 100%; 
+      height: auto; 
+      font-size: 28px; 
+      padding: 15px;
+      margin-top: 20px; 
+    }
+  
+    .test-container hr {
+      margin-top: 30px; 
+      border-width: 1px; 
+    }
+  
+    .return {
+      width: 100%;
+      height: auto; 
+      font-size: 22px; 
+      padding: 15px;
+      margin-top: 30px; 
+      text-align: center;
+    }
+  
+    .return a {
+      font-size: 22px; 
+    }
+  
+    .return a img {
+      display: none; 
+    }
+  }

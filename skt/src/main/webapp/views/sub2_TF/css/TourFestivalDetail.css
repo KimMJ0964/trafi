@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+   display: flex;
+    justify-content: center;
+    background-color: #DFF0FF;
+    
+}
+
+.container {
+    width: 900px;
+    max-width: 1284px;
+    margin: 100px auto;
+    padding: 80px;
+    background-color: #ffffff;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 56px;
+}
+
+.banner img{
+    width: 100%;
+}
+
+.second-content{
+    width: 100%;
+    height: 400px;
+}
+
+.second-content img{
+    border-radius: 500px;
+    width: 45%;
+    margin:50px;
+    float: left;
+}
+
+.second-content span{
+    width: 250px;
+    float: right;
+    margin-top:50px;
+    margin-right: 55px;
+}
+
+.second-content h3{
+    background-color: #6FBAFF;
+    padding:20px 40px;
+    font-size: 30px;
+    border-radius: 200px;
+}
+
+.second-content p{
+    font-size: 25px;
+    margin: 20px;
+}
+
+.second-content h4{
+    background-color: #FFC2E2;
+    width: 150px;
+    padding: 10px 40px;
+    font-size: 25px;
+    border-radius: 200px;
+    text-align: center;
+}
+
+.third-content{
+    width: 100%;
+    height: 420px;
+}
+
+.third-content h2{
+    font-size: 30px;
+    width: 100%;
+    background-color: #6FBAFF;
+    padding: 10px 270px;
+    border-radius: 200px;
+}
+
+.third-content #mapimg{
+    width: 50%;
+    float: left;
+}
+
+.third-content-sub{
+    width: 90%;
+    height: 370px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 20px 20px;
+    padding: 50px;
+    margin-left: 40px;
+    margin-top: -10px;
+}
+
+.third-content hr{
+    background-color: #6FBAFF;
+}
+
+.third-content span{
+    float: right;
+    width: 240px;
+    margin-top: -30px;
+}
+
+.third-content span img{
+    width: 20%;
+    height: 50%;
+    margin-top: 20px;
+    
+}
+
+.spanTag{
+    width: 240px;
+    height: 80px;
+}
+
+.spanTag img{
+    float: left;
+}
+
+.spanTag p{
+    float: right;
+    width: 180px;
+    margin-top: 20px;
+}
+
+#map {
+   width: 500px;
+   height: 400px;
+   border: 5px solid #6FBAFF;
+   border-radius: 10px;
+}

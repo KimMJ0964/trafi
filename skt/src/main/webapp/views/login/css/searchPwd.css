@@ -1,0 +1,123 @@
+
+.container {
+    width: 700px;
+    max-width: 1284px;
+    height: 400px;
+    margin: 100px auto;
+    padding: 60px;
+    background-color: #ffffff;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 56px;
+}
+
+img{
+    width: 200px;
+    margin-top: 20px;
+    margin-left: 25px;
+    margin-bottom: 30px;
+    margin-right: 50px;
+    float: left;
+    clear: both;
+}
+
+h1{
+    margin-bottom: 10px;
+    margin-top:60px;
+}
+
+p{
+    color:gray;
+}
+
+p,h1{
+    float: right;
+    text-align: center;
+    margin-right:20px;
+}
+
+
+
+.container input{
+    width: 90%;
+    height: 25px;
+    background-color: #EDEDED;
+    border-radius: 15px;
+    border : none;
+    padding: 20px;
+   	margin:15px;
+    
+}
+
+ .container button{
+    border-radius:15px;
+    border:none;
+    height: 40px;
+    width: 200px;
+    background-color: #ADE8F4;
+    font-size: 18px ;
+    font-weight: 900;
+    color: gray;
+    line-height: 8px;
+    float: right;
+    margin-right:20px;
+    margin-bottom: 50px;
+}
+
+@media (max-width: 500px) {  
+    .container {
+        width: 450px;
+        max-width: 1284px;
+        height: 430px;
+        margin: 100px auto;
+        padding: 60px;
+        background-color: #ffffff;
+        box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 56px;
+    }
+    
+    form{
+        width: 100%;
+    }
+
+    img{
+        width: 230px;
+        margin-left: 50px;
+        margin-bottom:20px;
+    }
+    
+    h1{
+        margin-right: 60px;
+    }
+    
+    p{
+        color:gray;
+        margin-right: 30px;
+        margin-bottom: 10px;
+    }
+    
+    p,h1{
+        text-align: center;
+    }
+    input {
+        width: 100%;
+        height: 40px;
+        background-color: #EDEDED;
+        border-radius: 15px;
+        border: none;
+        padding: 10px;
+        margin: 10px 0; 
+    }
+    
+    button {
+        border-radius: 15px;
+        border: none;
+        height: 40px;
+        width: 50%; 
+        background-color: #ADE8F4;
+        font-size: 18px;
+        font-weight: 900;
+        color: gray;
+        line-height: 8px;
+        margin:10px 0;
+        }
+}

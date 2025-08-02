@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace : 해당 mapper 파일의 고유한 별칭 -->
+<mapper namespace="memberMapper">
+	<resultMap type="Member" id="memberResultSet">
+		<!-- <result column = "테이블 컬럼명" property="객체의 필드명"/> -->
+		<result column="MEM_ID" property="memId" />
+		<result column="MEM_PWD" property="memPwd" />
+		<result column="MEM_NAME" property="memName" />
+		<result column="PHONE" property="phone" />
+		<result column="ADDRESS" property="address" />
+		<result column="MEM_NO" property="memNo" />
+		<result column="EMAIL" property="email" />
+		<result column="STATUS" property="status" />
+		<result column="GRADE" property="grade" />
+	</resultMap>
+
+	<resultMap type="MemberProfileImg"
+		id="memberProfileImgResultSet">
+		<!-- <result column = "테이블 컬럼명" property="객체의 필드명"/> -->
+		<result column="CHANGE_NAME" property="changeName" />
+		<result column="FILE_PATH" property="filePath" />
+		<result column="MEM_ID" property="memId" />
+	</resultMap>
+
+	<resultMap type="Interested" id="InterestedResultSet">
+		<result column="MEM_ID" property="memId" />
+		<result column="FS_NO" property="fsNo" />
+		<result column="COURSE_NO" property="courseNo" />
+		<result column="TOUR_NO" property="tourNo" />
+	</resultMap>
+
+	<resultMap type="Tourist" id="TouristResultSet">
+		<!-- <result column = "테이블 컬럼명" property="객체의 필드명"/> -->
+		<result column="TOUR_NO" property="tourNo" />
+		<result column="TOUR_NAME" property="tourName" />
+		<result column="TOUR_AREA" property="tourArea" />
+		<result column="TOUR_TEMA" property="tourTema" />
+		<result column="TOUR_SEASON" property="tourSeason" />
+		<result column="TOUR_IMG" property="tourImg" />
+		<result column="TOUR_THUMBNAIL" property="tourThumbnail" />
+		<result column="TOUR_LIKE" property="tourLike" />
+		<result column="TOUR_LAT" property="tourLat" />
+		<result column="TOUR_LONG" property="tourLong" />
+	</resultMap>
+
+	<resultMap type="Festival" id="FestivalResultSet">
+		<id property="fsNo" column="FS_NO" />
+		<result property="fsName" column="FS_NAME" />
+		<result property="fsArea" column="FS_AREA" />
+		<result property="fsSeason" column="FS_SEASON" />
+		<result property="fsTema" column="FS_TEMA" />
+		<result property="fsImg" column="FS_IMG" />
+		<result property="fsUrl" column="FS_URL" />
+		<result property="fsDct" column="FS_DCT" />
+		<result property="fsLike" column="FS_LIKE" />
+		<result property="fsLat" column="FS_LAT" />
+		<result property="fsLong" column="FS_LONG" />
+		<result property="fsEnd" column="FS_END" />
+		<result property="fsStart" column="FS_START" />
+	</resultMap>
+	
+	<resultMap id="courseResultSet" type="Course">
+      <result column="COURSE_NO" property="courseNo" />
+      <result column="COURSE_NAME" property="courseName" />
+      <result column="COURSE_AREA" property="courseArea" />
+      <result column="COURSE_TEMA" property="courseTema" />
+      <result column="COURSE_IMG" property="courseImg" />
+   </resultMap>
+	<!-- *SELECT문 전송시 <select id="각 sql문의 식별자" [parameterType="전달받을 자바타입"] resultMap="결과 
+		객체" | resultType="결과 타입"> </select> -->
+	<update id="updateMember" parameterType="Member">
+		UPDATE MEMBER
+		SET
+		MEM_NAME = #{memName},
+		PHONE = #{phone},
+		ADDRESS = #{address},
+		MEM_NO =
+		#{memNo},
+		EMAIL = #{email}
+		WHERE MEM_ID = #{memId}
+	</update>
+
+	<update id="updatePassword" parameterType="Member">
+		UPDATE MEMBER
+		SET
+		MEM_PWD = #{memPwd}
+		WHERE MEM_ID = #{memId}
+	</update>
+
+	<select id="selectPasswordByMemId" parameterType="String"
+		resultType="String">
+		SELECT MEM_PWD
+		FROM MEMBER
+		WHERE MEM_ID = #{memId}
+	</select>
+
+	<select id="selectMemberById" parameterType="String"
+		resultMap="memberResultSet">
+		SELECT * FROM MEMBER WHERE MEM_ID = #{memId}
+	</select>
+
+	<delete id="deleteMember" parameterType="String">
+		UPDATE MEMBER
+		SET STATUS
+		= 'N'
+		WHERE MEM_ID = #{memId}
+	</delete>
+	<!-- <update id="increaseCount" parameterType="_int"> UPDATE COMMUNITY SET 
+		VIEW_COUNT = VIEW_COUNT + 1 WHERE COMM_NO = #{boardNo} </update> -->
+
+	<select id="myPageInfo" parameterType="String"
+		resultMap="memberResultSet">
+		SELECT MEM_ID,
+		MEM_NAME,
+		PHONE,
+		ADDRESS,
+		MEM_NO,
+		EMAIL
+		FROM MEMBER
+		WHERE MEM_ID = #{loginValue}
+	</select>
+
+	<select id="loginMember" parameterType="Member"
+		resultMap="memberResultSet">
+		SELECT
+		MEM_ID,
+		MEM_PWD,
+		MEM_NAME,
+		PHONE,
+		ADDRESS,
+		MEM_NO,
+		EMAIL,
+		STATUS,
+		GRADE
+		FROM MEMBER
+		WHERE MEM_ID = #{memId}
+		AND MEM_PWD = #{memPwd}
+		AND STATUS = 'Y'
+	</select>
+
+	<select id="searchByEmailOrPhone" parameterType="String"
+		resultType="String">
+		SELECT MEM_ID
+		FROM MEMBER
+		WHERE (EMAIL = #{email} OR PHONE =
+		#{phone})
+		AND STATUS = 'Y'
+	</select>
+
+	<select id="searchPwd" parameterType="map" resultType="String">
+		SELECT
+		MEM_PWD
+		FROM MEMBER
+		WHERE MEM_ID = #{memId}
+		AND EMAIL = #{email}
+	</select>
+
+	<insert id="insertMember" parameterType="Member">
+		INSERT
+		INTO MEMBER(
+		MEM_ID,
+		MEM_PWD,
+		MEM_NAME,
+		PHONE,
+		ADDRESS,
+		MEM_NO,
+		EMAIL,
+		GRADE
+		)
+		VALUES(
+		#{memId},
+		#{memPwd},
+		#{memName},
+		#{phone},
+		#{address},
+		#{memNo},
+		#{email},
+		#{grade}
+		)
+	</insert>
+
+	<select id="checkId" parameterType="string" resultType="int">
+		SELECT
+		COUNT(*) FROM MEMBER WHERE MEM_ID = #{checkId}
+	</select>
+
+
+	<update id="updateProfileImage">
+		UPDATE Member_profile_img
+		SET change_name =
+		#{fileName}, file_path = #{filePath}
+		WHERE mem_id = #{userId}
+	</update>
+
+	<select id="myPageInterested" resultMap="FestivalResultSet">
+		SELECT f.*, i.MEM_ID,
+		i.COURSE_NO, i.TOUR_NO
+		FROM FESTIVAL f
+		LEFT JOIN INTERESTED i ON f.FS_NO
+		= i.FS_NO
+		WHERE i.MEM_ID = #{loginId} AND i.FS_NO IS NOT NULL
+	</select>
+
+	<select id="myPageInterestedTwo" resultMap="TouristResultSet">
+		SELECT t.*, i.MEM_ID,
+		i.COURSE_NO, i.TOUR_NO
+		FROM TOURIST t
+		LEFT JOIN INTERESTED i ON
+		t.TOUR_NO = i.TOUR_NO
+		WHERE i.MEM_ID = #{loginId} AND i.TOUR_NO IS NOT
+		NULL
+	</select>
+	
+	<select id="myPageInterestedThree" resultMap="courseResultSet">
+		SELECT t.COURSE_NO,
+			   t.COURSE_NAME,
+			   t.COURSE_AREA,
+			   t.COURSE_TEMA,
+			   t.COURSE_IMG,
+			   i.MEM_ID,
+			   i.COURSE_NO,
+			   i.TOUR_NO
+		FROM COURSE t
+		LEFT JOIN INTERESTED i ON
+		t.COURSE_NO = i.COURSE_NO
+		WHERE i.MEM_ID = #{loginId} AND i.COURSE_NO IS NOT
+		NULL
+	</select>
+
+	<insert id="insertProfileImage" parameterType="MemberProfileImg">
+		INSERT INTO
+		MEMBER_PROFILE_IMG (MEM_ID)
+		VALUES (#{memId})
+	</insert>
+
+	<select id="selectProfileImage"
+		resultMap="memberProfileImgResultSet">
+		SELECT *
+		FROM MEMBER_PROFILE_IMG
+		WHERE MEM_ID = #{memId}
+	</select>
+
+	<update id="saveProfileImage">
+		UPDATE MEMBER_PROFILE_IMG
+		SET CHANGE_NAME =
+		#{changeName}, FILE_PATH = #{filePath}
+		WHERE MEM_ID = #{memId}
+	</update>
+
+	<!-- 관심등록 축제 목록 삭제 -->
+	<delete id="deleteInterestedFestival">
+		DELETE FROM INTERESTED
+		WHERE FS_NO = #{fsNo}
+		AND MEM_ID
+		= #{memId}
+	</delete>
+
+	<!-- 관심등록 관광지 목록 삭제 -->
+	<delete id="deleteInterestedTour">
+		DELETE FROM INTERESTED
+		WHERE TOUR_NO = #{tourNo}
+		AND
+		MEM_ID = #{memId}
+	</delete>
+
+	<delete id="deleteInterestedCourse">
+		DELETE FROM INTERESTED
+		WHERE COURSE_NO = #{courseNo}
+		AND
+		MEM_ID = #{memId}
+	</delete>
+
+	<select id="checkInterestedTourStatus"
+		resultMap="InterestedResultSet">
+		SELECT *
+		FROM INTERESTED
+		WHERE TOUR_NO = #{tourNo}
+		AND MEM_ID =
+		#{login}
+	</select>
+
+	<insert id="insertInterestedTour">
+		INSERT INTO INTERESTED (
+		MEM_ID,
+		FS_NO,
+		COURSE_NO,
+		TOUR_NO
+		) VALUES (
+		#{login},
+		NULL,
+		NULL,
+		#{tourNo}
+		)
+	</insert>
+
+	<update id="updateInterestedTourStatus"
+		parameterType="Interested">
+		UPDATE INTERESTED
+		SET MEM_ID = #{login}
+		WHERE TOUR_NO = #{tourNo}
+	</update>
+
+	<select id="checkInterestedFsStatus"
+		resultMap="InterestedResultSet">
+		SELECT *
+		FROM INTERESTED
+		WHERE FS_NO = #{fsNo}
+		AND MEM_ID =
+		#{login}
+	</select>
+
+	<insert id="insertInterestedFs">
+		INSERT INTO INTERESTED (
+		MEM_ID,
+		FS_NO,
+		COURSE_NO,
+		TOUR_NO
+		) VALUES (
+		#{login},
+		#{fsNo},
+		NULL,
+		NULL
+		)
+	</insert>
+
+	<update id="updateInterestedFsStatus" parameterType="Interested">
+		UPDATE
+		INTERESTED
+		SET MEM_ID = #{login}
+		WHERE FS_NO = #{fsNo}
+	</update>
+
+
+	<select id="checkInterestedCsStatus"
+		resultMap="InterestedResultSet">
+		SELECT *
+		FROM INTERESTED
+		WHERE COURSE_NO = #{courseNo}
+		AND MEM_ID =
+		#{login}
+	</select>
+
+	<insert id="insertInterestedCs">
+		INSERT INTO INTERESTED (
+		MEM_ID,
+		FS_NO,
+		COURSE_NO,
+		TOUR_NO
+		) VALUES (
+		#{login},
+		NULL,
+		#{courseNo},
+		NULL
+		)
+	</insert>
+
+	<update id="updateInterestedCs" parameterType="Interested">
+		UPDATE INTERESTED
+		SET MEM_ID = #{login}
+		WHERE COURSE_NO = #{courseNo}
+	</update>
+	
+	
+	
+</mapper>

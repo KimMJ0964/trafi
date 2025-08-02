@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="tourMapper">
+	<resultMap type="Tourist" id="tourResultSet">
+		<result column="TOUR_NO" property="tourNo" />
+		<result column="TOUR_NAME" property="tourName" />
+		<result column="TOUR_AREA" property="tourArea" />
+		<result column="TOUR_TEMA" property="tourTema" />
+		<result column="TOUR_SEASON" property="tourSeason" />
+		<result column="TOUR_IMG" property="tourImg" />
+		<result column="TOUR_THUMBNAIL" property="tourThumbnail" />
+		<result column="TOUR_LIKE" property="tourLike" />
+		<result column="TOUR_LAT" property="tourLat" />
+		<result column="TOUR_LONG" property="tourLong" />
+	</resultMap>
+	
+	<select id="selectListCount" resultType="_int">
+		SELECT COUNT(*)
+		  FROM TOURIST
+	</select>
+	<select id="selectList" resultMap="tourResultSet">
+		SELECT TOUR_NO,
+			   TOUR_NAME,
+			   TOUR_AREA,
+			   TOUR_TEMA,
+			   TOUR_SEASON,
+			   TOUR_IMG
+		  FROM TOURIST
+		 ORDER BY TOUR_NO ASC
+	</select>
+	
+	<update id="increaseTourLike">
+		UPDATE TOURIST
+		   SET TOUR_LIKE = TOUR_LIKE + 1
+		 WHERE TOUR_NO = #{tourNo}
+	</update>
+	<update id="decreaseTourLike">
+		UPDATE TOURIST
+		SET TOUR_LIKE = TOUR_LIKE - 1
+		WHERE TOUR_NO = #{tourNo}
+	</update>
+	
+	<select id="selectTour" parameterType="_int" resultMap="tourResultSet">
+	SELECT TOUR_NO, 
+		   TOUR_THUMBNAIL, 
+		   TOUR_IMG, 
+		   TOUR_NAME, 
+		   TOUR_AREA, 
+		   TOUR_TEMA, 
+		   TOUR_SEASON, 
+		   TOUR_LAT, 
+		   TOUR_LONG 
+	FROM TOURIST 
+	WHERE TOUR_NO = #{tourNo}
+	</select>
+	
+	<select id="searchTours" resultMap="tourResultSet">
+<!--  resultType을 Tour로 설정  -->
+SELECT * FROM TOURIST WHERE TOUR_NAME LIKE '%' || #{keyword} || '%'
+</select>
+</mapper>

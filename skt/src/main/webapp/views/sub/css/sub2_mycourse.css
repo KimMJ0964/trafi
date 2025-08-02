@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: #DFF0FF;
+    overflow-x: hidden;
+}
+
+
+header h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.planner {
+    width: 1284px;
+    max-width: 1284px;
+    margin: 50px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    height: 700px;
+}
+
+.course-details, .preview-list {
+    width: 48%;
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 10px;
+    overflow-y: auto; 
+    max-height: 100%;
+    padding: 40px;
+    background-color: #ffffff;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 26px;
+}
+
+.course-details h2, .preview-list h2 {
+    font-size: 18px;
+    margin-bottom: 30px;
+    background-color: #FFC2E2;
+    border-radius: 50px;
+    padding: 10px;
+    text-align: center;
+
+}
+
+.day {
+    margin-bottom: 20px;
+}
+
+.day h3{
+    text-align: center;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-bottom: #5bc0de solid 2px;
+}
+
+.time-place {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5px;
+    background-color: #DFF0FF;
+    padding: 10px;
+    border-radius: 50px;
+    margin: 10px 0;
+    font-size: 15px;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto; /* 추가: 버튼을 아래로 고정 */
+}
+.actions button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.plus{
+    width: 100%;
+}
+
+.plus img{
+    margin: 0 auto;
+    width: 8%;
+    height: 8%;
+    display: flex;
+    background-color: #FFC2E2;
+    border-radius: 50px;
+    padding: 5px;
+}
+
+.actions button{
+    border-radius: 10px;
+}
+
+.submit {
+    background-color: #82C4FF;
+    color: white;
+    width: 200px;
+}
+
+.delete {
+    background-color: #FFC3C3;
+    color: white;
+    width: 200px;
+}
+
+.preview-list .preview-item {
+    margin-bottom: 15px;
+}
+
+.preview-list img {
+    width: 80%;
+    border-radius: 5px;
+}
+
+.preview-item p {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #333;
+    text-align: left;
+    font-weight: 900;
+}
+
+/* Add scroll styling */
+.course-details::-webkit-scrollbar, .preview-list::-webkit-scrollbar {
+    width: 10px;
+}
+
+.course-details::-webkit-scrollbar-thumb, .preview-list::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 5px;
+}
+
+.course-details::-webkit-scrollbar-track, .preview-list::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
+}
+
+.content-footer {
+    display: flex;             
+    justify-content: center;      
+    position: absolute;       
+    bottom: 100px;             
+    
+}
+
+.content-footer button {
+    padding: 10px 20px;          
+    font-size: 16px;           
+    cursor: pointer; 
+    width: 200px;
+    background-color: #FFC2E2;    
+    border:none;
+    border-radius: 50px; 
+       
+}
+.action-buttons {
+    width: 190px;
+    display: flex;
+    justify-content: space-between; 
+    margin-left: 50px;
+    background-color:#DFF0FF; 
+    padding: 10px;
+    border-radius: 50px;
+}
+
+.action-buttons button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 50px;
+    background-color: #FFC3C3; 
+    color: white; 
+    cursor: pointer;
+    font-size: 16px; 
+    display: flex; 
+    align-items: center; 
+}
+

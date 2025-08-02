@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace : 해당 mapper 파일의 고유한 별칭 -->
+<mapper namespace="mainPageMapper">
+
+	<resultMap type="Tourist" id="TouristResultSet">
+		<!-- <result column = "테이블 컬럼명" property="객체의 필드명"/> -->
+		<result column="TOUR_NO" property="tourNo" />
+		<result column="TOUR_NAME" property="tourName" />
+		<result column="TOUR_AREA" property="tourArea" />
+		<result column="TOUR_TEMA" property="tourTema" />
+		<result column="TOUR_SEASON" property="tourSeason" />
+		<result column="TOUR_IMG" property="tourImg" />
+		<result column="TOUR_THUMBNAIL" property="tourThumbnail" />
+		<result column="TOUR_LIKE" property="tourLike" />
+		<result column="TOUR_LAT" property="tourLat" />
+		<result column="TOUR_LONG" property="tourLong" />
+	</resultMap>
+
+	<resultMap type="Festival" id="FestivalResultSet">
+		<id property="fsNo" column="FS_NO" />
+		<result property="fsName" column="FS_NAME" />
+		<result property="fsArea" column="FS_AREA" />
+		<result property="fsSeason" column="FS_SEASON" />
+		<result property="fsTema" column="FS_TEMA" />
+		<result property="fsImg" column="FS_IMG" />
+		<result property="fsUrl" column="FS_URL" />
+		<result property="fsDct" column="FS_DCT" />
+		<result property="fsLike" column="FS_LIKE" />
+		<result property="fsLat" column="FS_LAT" />
+		<result property="fsLong" column="FS_LONG" />
+		<result property="fsEnd" column="FS_END" />
+		<result property="fsStart" column="FS_START" />
+	</resultMap>
+
+	<select id="selectTopTourists" resultMap="TouristResultSet">
+		SELECT *
+		FROM TOURIST
+		ORDER BY TOUR_LIKE DESC
+	</select>
+
+	<select id="selectTopTouristsTwo" resultMap="TouristResultSet">
+		SELECT *
+		FROM TOURIST
+		ORDER BY TOUR_LIKE DESC
+	</select>
+	
+	<select id="fesitivalIntro" resultMap="FestivalResultSet">
+		SELECT *
+		FROM FESTIVAL
+		ORDER BY FS_LIKE DESC
+	</select>
+</mapper>

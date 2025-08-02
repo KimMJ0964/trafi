@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #DFF0FF;
+}
+
+.content {
+    width: 900px;
+    max-width: 1284px;
+    margin: 100px auto;
+    padding: 80px;
+    background-color: #fff;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 56px;
+}
+
+.content form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.content p {
+    margin-top: 10px;
+    margin-bottom: 5px; 
+    font-size: 16px; 
+    color: #333;
+}
+
+.content input, select {
+    height: 45px;
+    margin-bottom: 10px; 
+    padding: 10px;
+    font-size: 16px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    border: none;
+}
+
+.content select {
+    width: 200px;
+}
+
+.content h1 {
+    text-align: center;
+    margin-bottom: 40px; 
+}
+
+.content .email input{
+    width: 490px;
+    margin-right: 4px;
+}
+
+.content .button-container {
+    display: flex;
+    justify-content: space-between; 
+    margin-top: 20px; 
+}
+
+.content input[type="reset"], input[type="submit"] {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-right: 5%;
+}
+
+.content input[type="reset"] {
+    background-color: #FFD7D7;
+    color: white; 
+    border: none; 
+    border-radius: 10px;
+    width: 30%; 
+    font-size: 20px;
+    font-weight:bold;
+}
+
+.content input[type="submit"] {
+    background-color: #ADE8F4;
+    color: white; 
+    border: none; 
+    border-radius: 10px; 
+    width: 30%;
+    font-size: 20px;
+    font-weight:bold;
+}
+.content{
+	display: flex;
+}
+#insertId{
+	width: 500px;
+}
+#checkBtn{
+	width: 190px; height: 45px;
+	line-height: 20px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    border: none;
+}
+#checkBtn:hover{
+    background-color: lightgray;
+}
+
+
+/* 500px 이하의 화면 크기에서 적용할 스타일 */
+@media (max-width: 500px) {
+    .content {
+        width: 90%;
+        max-width: 400px;
+        margin: 100px auto;
+        padding: 40px;
+        background-color: #ffffff;
+        box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 56px;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    p {
+        margin-top: 10px;
+        margin-bottom: 5px; 
+        font-size: 16px; 
+        color: #333;
+    }
+    
+    input, select {
+        height: 45px;
+        margin-bottom: 10px; 
+        padding: 10px;
+        font-size: 16px;
+        background-color: lightgray;
+        border-radius: 10px;
+        border: none;
+    }
+    
+    select {
+        width: 38%;
+        font-size: 15px;
+        padding: 0;
+    }
+    
+    h1 {
+        text-align: center;
+        margin-bottom: 40px; 
+    }
+    
+    .email input{
+        width: calc(90% - 31%);
+        margin-right: 2px;
+    }
+    
+    .button-container {
+        display: flex;
+        justify-content: space-between; 
+        margin-top: 20px; 
+    }
+    
+    input[type="reset"], input[type="submit"] {
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 20px;
+        margin-right: 5%;
+    }
+    
+    input[type="reset"] {
+        background-color: #FFD7D7;
+        color: white; 
+        border: none; 
+        border-radius: 10px;
+        width: 30%; 
+        font-size: 15px;
+        font-weight:bold;
+    }
+    
+    input[type="submit"] {
+        background-color: #ADE8F4;
+        color: white; 
+        border: none; 
+        border-radius: 10px; 
+        width: 30%;
+        font-size: 15px;
+        font-weight:bold;
+    }
+
+}

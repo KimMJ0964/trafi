@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="boardMapper">
+	<resultMap id="boardResultSet" type="Board">
+		<result column="COMM_NO" property="commNo" />
+		<result column="MEM_ID" property="memId" />
+		<result column="TITLE" property="title" />
+		<result column="CONTENT" property="content" />
+		<result column="VIEW_COUNT" property="viewCount" />
+		<result column="LIKE_COUNT" property="likeCount" />
+		<result column="CREATE_DATE" property="createDate" />
+		<result column="UPDATE_DATE" property="updateDate" />
+		<result column="TYPE" property="type" />
+	</resultMap>
+
+	<resultMap id="boardCommentResultSet" type="BoardComment">
+		<result column="COMM_NO" property="commNo" />
+		<result column="MEM_ID" property="memId" />
+		<result column="COMMENT_NO" property="commentNo" />
+		<result column="COMMENT_CONTENT" property="commentContent" />
+		<result column="PARENT_COMMENT_NO" property="parentCommentNo" />
+		<result column="COMMENT_DATE" property="commentDate" />
+		<result column="STATUS" property="status" />
+	</resultMap>
+
+	<resultMap id="boardFileResultSet" type="BoardFile">
+		<result column="FILE_NO" property="fileNo" />
+		<result column="REF_BNO" property="refBNo" />
+		<result column="ORIGIN_NAME" property="originName" />
+		<result column="CHANGE_NAME" property="changeName" />
+		<result column="FILE_PATH" property="filePath" />
+	</resultMap>
+
+	<resultMap id="boardLikeResultSet" type="BoardLike">
+		<result column="COMM_NO" property="commNo" />
+		<result column="MEM_ID" property="memId" />
+		<result column="LIKE_STATUS" property="likeStatus" />
+	</resultMap>
+
+	<select id="selectListCount" resultType="_int">
+		SELECT COUNT(*)
+		FROM
+		COMMUNITY
+	</select>
+
+	<select id="selectList" resultMap="boardResultSet">
+		SELECT COMM_NO,
+		TITLE,
+		MEM_ID,
+		VIEW_COUNT,
+		LIKE_COUNT,
+		CREATE_DATE,
+		TYPE
+		FROM COMMUNITY
+		WHERE STATUS = 'Y'
+		ORDER BY COMM_NO DESC
+	</select>
+
+	<update id="increaseCount" parameterType="_int">
+		UPDATE COMMUNITY
+		SET
+		VIEW_COUNT = VIEW_COUNT + 1
+		WHERE COMM_NO = #{boardNo}
+	</update>
+
+	<select id="selectBoard" parameterType="_int"
+		resultMap="boardResultSet">
+		SELECT COMM_NO,
+		TITLE,
+		MEM_ID,
+		VIEW_COUNT,
+		LIKE_COUNT,
+		CREATE_DATE,
+		TYPE,
+		CONTENT
+		FROM COMMUNITY
+		WHERE COMM_NO = #{boardNo}
+	</select>
+
+	<select id="selectMyPageBoardList" resultMap="boardResultSet">
+		SELECT COMM_NO,
+		TITLE,
+		MEM_ID,
+		VIEW_COUNT,
+		LIKE_COUNT,
+		CREATE_DATE,
+		TYPE
+		FROM COMMUNITY
+		WHERE MEM_ID = #{loginId}
+		ORDER BY COMM_NO DESC
+	</select>
+
+	<insert id="insertBoard" parameterType="Board">
+		INSERT INTO COMMUNITY
+		(COMM_NO, TITLE, CONTENT, TYPE, MEM_ID, CREATE_DATE,
+		STATUS)
+		VALUES
+		(COMMUNITY_SEQ_NEW.NEXTVAL, #{title}, #{content}, #{type}, #{memId},
+		SYSDATE, 'Y')
+	</insert>
+
+	<insert id="insertBoardFile" parameterType="BoardFile">
+		INSERT INTO
+		COMMUNITY_FILE (
+		FILE_NO,
+		REF_BNO,
+		ORIGIN_NAME,
+		CHANGE_NAME,
+		FILE_PATH
+		)
+		VALUES (
+		COMMUNITY_FILE_SEQ_NEW.NEXTVAL,
+		COMMUNITY_SEQ_NEW.CURRVAL,
+		#{originName},
+		#{changeName},
+		#{filePath}
+		)
+	</insert>
+
+	<insert id="insertComment">
+		INSERT INTO USER_COMMENT (
+		COMM_NO,
+		MEM_ID,
+		COMMENT_CONTENT,
+		COMMENT_DATE,
+		status,
+		COMMENT_NO,
+		PARENT_COMMENT_NO
+		)
+		VALUES (
+		#{commNo},
+		#{memId},
+		#{commentContent},
+		SYSDATE,
+		'Y',
+		COMMENT_NO_SEQ.NEXTVAL,
+		0
+		)
+	</insert>
+
+	<update id="deleteBoard" parameterType="_int">
+		UPDATE COMMUNITY
+		SET
+		STATUS = 'N'
+		WHERE COMM_NO = #{boardNo}
+	</update>
+
+	<update id="updateBoard" parameterType="Board">
+		UPDATE COMMUNITY
+		SET TITLE
+		= #{title},
+		CONTENT = #{content},
+		TYPE = #{type},
+		MEM_ID = #{memId},
+		CREATE_DATE = SYSDATE
+		WHERE COMM_NO = #{commNo}
+	</update>
+
+	<update id="updateBoardFile" parameterType="BoardFile">
+		UPDATE COMMUNITY_FILE
+		SET ORIGIN_NAME = #{originName},
+		CHANGE_NAME = #{changeName},
+		FILE_PATH
+		= #{filePath}
+		WHERE REF_BNO = #{refBNo}
+	</update>
+
+	<select id="myPageBoard" resultMap="boardResultSet">
+		SELECT COMM_NO,
+		TITLE,
+		MEM_ID,
+		VIEW_COUNT,
+		LIKE_COUNT,
+		CREATE_DATE,
+		TYPE
+		FROM COMMUNITY
+		WHERE MEM_ID = #{memId}
+		AND STATUS = 'Y'
+		ORDER BY COMM_NO DESC
+	</select>
+
+	<select id="myPageComment" resultMap="boardCommentResultSet">
+		SELECT MEM_ID,
+		COMMENT_NO,
+		COMM_NO,
+		COMMENT_CONTENT
+		FROM USER_COMMENT
+		WHERE MEM_ID = #{loginId}
+		AND STATUS = 'Y'
+		ORDER BY COMM_NO DESC
+	</select>
+
+	<select id="commentList" resultMap="boardCommentResultSet">
+		SELECT MEM_ID,
+		COMMENT_CONTENT,
+		COMMENT_NO,
+		COMM_NO,
+		STATUS
+		FROM USER_COMMENT
+		WHERE
+		COMM_NO = #{boardNo}
+		AND PARENT_COMMENT_NO = 0
+		ORDER BY COMM_NO DESC
+	</select>
+
+	<select id="replyList" resultMap="boardCommentResultSet">
+		SELECT MEM_ID,
+		COMMENT_CONTENT,
+		COMMENT_NO,
+		PARENT_COMMENT_NO,
+		STATUS
+		FROM USER_COMMENT
+		WHERE COMM_NO =
+		#{boardNo}
+		AND PARENT_COMMENT_NO > 0
+		ORDER BY COMM_NO DESC
+	</select>
+
+	<select id="selectSearchCount" resultType="_int">
+		SELECT COUNT(*)
+		FROM COMMUNITY
+		WHERE STATUS = 'Y'
+		<if test="condition == 'writer'">
+			AND MEM_ID<!-- condition -> writer -->
+		</if>
+		<if test="condition == 'title'">
+			AND TITLE<!-- condition -> title -->
+		</if>
+		<if test="condition == 'type'">
+			AND TYPE<!-- condition -> content -->
+		</if>
+		LIKE '%' || #{keyword} || '%'
+	</select>
+
+	<select id="selectSearchList" resultMap="boardResultSet">
+		SELECT COMM_NO,
+		TITLE,
+		MEM_ID,
+		VIEW_COUNT,
+		CREATE_DATE,
+		TYPE
+		FROM COMMUNITY
+		WHERE
+		STATUS = 'Y'
+		<if test="condition == 'writer'">
+			AND MEM_ID<!-- condition -> writer -->
+		</if>
+		<if test="condition == 'title'">
+			AND TITLE<!-- condition -> title -->
+		</if>
+		<if test="condition == 'type'">
+			AND TYPE<!-- condition -> content -->
+		</if>
+		LIKE '%' || #{keyword} || '%'
+		ORDER BY COMM_NO DESC
+	</select>
+
+	<select id="filePath" resultMap="boardFileResultSet">
+		SELECT CHANGE_NAME,
+		FILE_PATH,
+		ORIGIN_NAME
+		FROM COMMUNITY_FILE
+		WHERE REF_BNO = #{boardNo}
+	</select>
+
+	<select id="checkLikeStatus" resultMap="boardLikeResultSet">
+		SELECT COMM_NO,
+		MEM_ID,
+		LIKE_STATUS
+		FROM COMMUNITY_LIKE
+		WHERE COMM_NO = #{bno}
+		AND MEM_ID =
+		#{login}
+	</select>
+
+	<insert id="insertLike">
+		INSERT INTO COMMUNITY_LIKE (
+		COMM_NO,
+		MEM_ID,
+		LIKE_STATUS
+		) VALUES (
+		#{bno},
+		#{login},
+		1
+		)
+	</insert>
+
+	<update id="updateLike" parameterType="BoardLike">
+		UPDATE COMMUNITY_LIKE
+		SET LIKE_STATUS = CASE
+		WHEN LIKE_STATUS = 1 THEN 0
+		ELSE 1
+		END
+		WHERE COMM_NO = #{bno}
+		AND MEM_ID = #{login}
+	</update>
+
+	<insert id="insertReply">
+		INSERT INTO USER_COMMENT (
+		COMM_NO,
+		MEM_ID,
+		COMMENT_CONTENT,
+		COMMENT_DATE,
+		status,
+		COMMENT_NO,
+		PARENT_COMMENT_NO
+		)
+		VALUES (
+		#{commNo},
+		#{memId},
+		#{commentContent},
+		SYSDATE,
+		'Y',
+		COMMENT_NO_SEQ.NEXTVAL,
+		#{parentCommentNo}
+		)
+	</insert>
+
+	<update id="deleteComment" parameterType="BoardComment">
+		UPDATE USER_COMMENT
+		SET
+		STATUS = 'N'
+		WHERE COMMENT_NO = #{commentNo}
+		AND MEM_ID = #{memId}
+	</update>
+
+	<select id="likeCount" resultType="_int">
+		SELECT COUNT(*)
+		FROM
+		COMMUNITY_LIKE
+		WHERE COMM_NO = #{boardNo}
+		AND LIKE_STATUS = 1
+	</select>
+
+	<select id="boardUpdatePage" resultMap="boardResultSet">
+		SELECT COMM_NO,
+		TITLE,
+		MEM_ID,
+		CONTENT,
+		TYPE
+		FROM COMMUNITY
+		WHERE COMM_NO = #{boardNo}
+	</select>
+	
+	<select id="boardUpdatePageFile" resultMap="boardFileResultSet">
+		SELECT FILE_NO,
+			   REF_BNO,
+			   ORIGIN_NAME,
+			   CHANGE_NAME,
+			   FILE_PATH
+		FROM COMMUNITY_FILE
+		WHERE REF_BNO = #{boardNo}
+	</select>
+	
+</mapper>
