@@ -81,12 +81,11 @@ https://www.erdcloud.com/d/Kj52naq64X8ukEk5i
 
 ## 화면 구성
 
-| **페이지**                    | **기능**                                                                                                                                                            | **이미지**                    |
-|-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
-| **메인 페이지**                | - 인기관광명소<br>                                                                                                      |  <img width="648" height="327" alt="image7" src="https://github.com/user-attachments/assets/4ca7c178-45a0-4d60-978d-930a07bd5c12" /> <img width="717" height="300" alt="image6" src="https://github.com/user-attachments/assets/f183cf68-8ecd-468b-9087-ae0a6e2041fe" />
-|
-| **커뮤니티**                   | - 게시판 및 댓글 기능<br>                                                                                                              |<img width="648" height="412" alt="image8" src="https://github.com/user-attachments/assets/d5db3808-c56b-4ef3-8d47-854763f4ff20" />|
-| **마이페이지**              | - 내 정보 수정<br>- 투어, 코스, 축제 관심 목록 관리<br>- 내 게시글, 댓글 관리<br>-                                                                                     | <img width="922" height="581" alt="image13" src="https://github.com/user-attachments/assets/d59c882b-5448-433b-8dd8-45547aee781d" />
- |
+| **페이지**       | **기능**                                                                                         | **이미지** |
+|------------------|--------------------------------------------------------------------------------------------------|------------|
+| **메인 페이지**   | - 인기관광명소 표시                                                                              | <img width="300" alt="image7" src="https://github.com/user-attachments/assets/4ca7c178-45a0-4d60-978d-930a07bd5c12" /><br><img width="300" alt="image6" src="https://github.com/user-attachments/assets/f183cf68-8ecd-468b-9087-ae0a6e2041fe" /> |
+| **커뮤니티**      | - 게시판 및 댓글 기능                                                                            | <img width="300" alt="image8" src="https://github.com/user-attachments/assets/d5db3808-c56b-4ef3-8d47-854763f4ff20" /> |
+| **마이페이지**    | - 내 정보 수정<br>- 투어, 코스, 축제 관심 목록 관리<br>- 내가 작성한 게시글 및 댓글 관리         | <img width="400" alt="image13" src="https://github.com/user-attachments/assets/d59c882b-5448-433b-8dd8-45547aee781d" /> |
+
 
 ---
