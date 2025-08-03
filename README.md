@@ -74,3 +74,5 @@
 ---
 
 ## 논리적 모델링
+https://www.erdcloud.com/d/Kj52naq64X8ukEk5i
+<img width="1445" height="701" alt="image" src="https://github.com/user-attachments/assets/85f1f5c3-88e7-4270-aa2b-4aeacf5aa3f5" />
