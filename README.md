@@ -83,16 +83,10 @@ https://www.erdcloud.com/d/Kj52naq64X8ukEk5i
 
 | **페이지**                    | **기능**                                                                                                                                                            | **이미지**                    |
 |-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
-| **메인 페이지**                | - 인기관광명<br>- 지역 전적 확인<br>- 현재 진행 중인 매칭                                                                                                        |  <img width="648" height="327" alt="image7" src="https://github.com/user-attachments/assets/4ca7c178-45a0-4d60-978d-930a07bd5c12" /> <img width="717" height="300" alt="image6" src="https://github.com/user-attachments/assets/f183cf68-8ecd-468b-9087-ae0a6e2041fe" />
-
+| **메인 페이지**                | - 인기관광명소<br>                                                                                                      |  <img width="648" height="327" alt="image7" src="https://github.com/user-attachments/assets/4ca7c178-45a0-4d60-978d-930a07bd5c12" /> <img width="717" height="300" alt="image6" src="https://github.com/user-attachments/assets/f183cf68-8ecd-468b-9087-ae0a6e2041fe" />
 |
-| **마이페이지**                 | - 내 정보 출력 및 수정<br>- 내 전적 확인<br>- 내 소속 구단 및 입단 신청 목록<br>- 문의 내역                                                                         | ![마이페이지](https://github.com/user-attachments/assets/853cc6f0-62e7-4681-aef9-041d13368ecd) |
-| **사이트 관리자 페이지**       | - 대관 결제 (성공/실패)<br>- 차단 유저 및 신고 관리                                                                                                              | ![사이트 관리자](https://github.com/user-attachments/assets/0c8b2e07-e44f-41cd-af1b-72322f85143d) |
-| **구장 관리자 페이지**         | - 대관 승인/거절<br>- 경기 리스트 및 결과 입력<br>- 구장 정보 수정/탈퇴<br>- 문의 및 경고 사유 등록                                                               | ![구장 관리자](https://github.com/user-attachments/assets/3406b5f3-5ed2-4bbe-9215-3714d70883ef) |
-| **커뮤니티**                   | - 게시판 및 댓글 기능<br>- 게시판 및 댓글 신고 기능                                                                                                               | ![커뮤니티](https://github.com/user-attachments/assets/f6d20d2d-e579-40d1-852d-fa8353b179eb) |
-| **구단 미니홈피**              | - 커뮤니티 기능<br>- 구단원 목록 출력<br>- 구단 투표<br>- 구단 및 매치 관리                                                                                       | ![구단 미니홈피](https://github.com/user-attachments/assets/1e64761e-92a0-4f34-94fb-cfdcc6f736a9) |
-| **구단 메뉴 페이지**           | - 구단 창설<br>- 가입 신청                                                                                                                                       | ![구단 메뉴](https://github.com/user-attachments/assets/19e5a772-cdb7-4bf5-b0fa-a2d5bb6f8d24) |
-| **구장 페이지**                | - 구장 조회 및 예약                                                                                                                                               | ![구장](https://github.com/user-attachments/assets/67df3ce5-a45c-4e09-855f-96e0b0ee2831) |
-| **랭킹 페이지**                | - 구단 랭킹 확인                                                                                                                                                 | ![랭킹](https://github.com/user-attachments/assets/bb4665ce-555d-41db-8272-d975b42bf727) |
+| **커뮤니티**                   | - 게시판 및 댓글 기능<br>                                                                                                              |<img width="648" height="412" alt="image8" src="https://github.com/user-attachments/assets/d5db3808-c56b-4ef3-8d47-854763f4ff20" />|
+| **마이페이지**              | - 내 정보 수정<br>- 투어, 코스, 축제 관심 목록 관리<br>- 내 게시글, 댓글 관리<br>-                                                                                     | <img width="922" height="581" alt="image13" src="https://github.com/user-attachments/assets/d59c882b-5448-433b-8dd8-45547aee781d" />
+ |
 
 ---
